@@ -8,6 +8,9 @@ import Profile from "./pages/Profile";
 import AddCategory from "./pages/Category/AddCategory";
 import CategoryDetails from "./pages/Category/CategoryDetails";
 import EditCategory from "./pages/Category/EditCategory";
+import BlogDetails from "./pages/Blog/BlogDetails";
+import AddBlog from "./pages/Blog/AddBlog";
+import EditBlog from "./pages/Blog/EditBlog";
 
 const App = () => {
   return (
@@ -16,10 +19,19 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Index />} />
           <Route path="/profile" element={<Profile />} />
+
+          {/* Blog Routes */}
+          <Route path="/blog" element={<BlogDetails />} />
+          <Route path="/blog/add" element={<AddBlog />} />
+          <Route path="/blog/edit/:blog_id" element={<EditBlog />} />
+
+          {/* Category routes */}
           <Route path="/category/add" element={<AddCategory />} />
           <Route path="/categories" element={<CategoryDetails />} />
-          <Route path="/category/edit/:category_id" element={<EditCategory />} />
-
+          <Route
+            path="/category/edit/:category_id"
+            element={<EditCategory />}
+          />
         </Route>
         <Route path="/login" element={<SignInPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
