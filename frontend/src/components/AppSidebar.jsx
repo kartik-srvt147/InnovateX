@@ -55,7 +55,7 @@ const AppSidebar = () => {
             <SidebarMenuItem>
               <SidebarMenuButton className="hover:text-teal-400 hover:bg-gray-800 transition-colors">
                 <FaBlog className="text-teal-400" />
-                <Link to="">Blogs</Link>
+                <Link to="/blog">Innovation Blogs</Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
 
