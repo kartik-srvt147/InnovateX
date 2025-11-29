@@ -21,7 +21,7 @@ const Layout = () => {
 
           {/* Main Content + Footer */}
           <div className="w-full flex flex-col">
-            <main className="min-h-[93%] p-4 bg-gray-950">
+            <main className="min-h-[93%] bg-gray-950">
               <Outlet />
             </main>
 
