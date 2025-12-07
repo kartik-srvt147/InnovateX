@@ -85,7 +85,7 @@ const AppSidebar = () => {
             </SidebarGroupLabel>
             <SidebarMenuItem>
               <SidebarMenuButton className="hover:text-teal-400 hover:bg-gray-800 transition-colors">
-                <GoDot className="text-emerald-400" />
+                <GoDot className="text-teal-400" />
                 <Link to="">Category Item</Link>
               </SidebarMenuButton>
             </SidebarMenuItem>

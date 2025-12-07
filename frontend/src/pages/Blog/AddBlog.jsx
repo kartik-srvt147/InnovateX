@@ -54,6 +54,11 @@ const AddBlog = () => {
     },
   });
 
+  const handleEditordata = (event, editor) => {
+    const data = editor.getData();
+    form.setValue('blogContent', data)
+  };
+
   const blogTitle = form.watch("title");
 
   useEffect(() => {
@@ -70,22 +75,21 @@ const AddBlog = () => {
   };
 
   async function onSubmit(values) {
-    try {
-      const formData = new FormData();
-      formData.append("data", JSON.stringify(values));
-      formData.append("file", file);
+    // console.log(values);
+    // try {
+    //       const response = await axiosInstance.post("/category/add", {
+    //         name: values.name,
+    //         slug: values.slug,
+    //       });
 
-      const response = await axiosInstance.post(`/blog/create`, formData);
-      showToast("success", response.data.message);
-      form.reset();
-      setFilePreview(null);
-      setFile(null);
-    } catch (error) {
-      showToast(
-        "error",
-        error.response?.data?.message || "Something went wrong!"
-      );
-    }
+    //       showToast("success", response.data.message);
+    //       form.reset();
+    //     } catch (error) {
+    //       const message =
+    //         error.response.data.message ||
+    //         "Something went wrong. Please try again.";
+    //       showToast("error", message);
+    //     }
   }
 
   return (
@@ -212,9 +216,24 @@ const AddBlog = () => {
             </div>
 
             {/* BLOG CONTENT */}
-            <div>
-              <Editor props={{initialData: ""}}/>
-            </div>
+
+            <FormField
+              control={form.control}
+              name="blogContent"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-gray-300 text-lg">
+                    Blog Content
+                  </FormLabel>
+                  <FormControl>
+                    <Editor
+                      props={{ initialData: "", onChange: handleEditordata }}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <Button
               type="submit"
